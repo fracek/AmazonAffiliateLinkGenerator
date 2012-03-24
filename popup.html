@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Popup</title>
+    </head>
+    <body>
+        <input type="text" id="txt" />
+    </body>
+    <script src="jq.min.js"></script>
+    <script>
+        function buildLink(item) {
+            return 'http://www.amazon.com/dp/' + item + '/?tag=' 
+                + localStorage['trackId'];
+        }
+
+        window.onload = function() {
+            var item = chrome.extension.getBackgroundPage().selectedItem;
+            if (item) {
+                var link = buildLink(item);
+                $('#txt').val(link);
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "Amazon Affiliate Link Generator",
+  "version": "0.1",
+  "description": "Generate an Amazon affiliate link with one click",
+  "background_page": "bg.html",
+  "icons": {
+    "16": "images/icon_16.png",
+    "48": "images/icon_48.png",
+    "128": "images/icon_128.png"
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "page_action": {
+    "default_icon": "images/icon_19.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+  {
+    "matches": ["http://*.amazon.com/*"],
+    "css": [],
+    "js": ["cs.js"]
+  }
+  ],
+  "options_page": "options.html"
+}

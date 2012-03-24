@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>Options for Amazon Affiliate Link Generator</title>
+        <script src="jq.min.js"></script>
+        <script type="text/javascript">
+            function restoreOptions() {
+                var trackId = localStorage['trackId'];
+                if (!trackId)
+                    return;
+                $('#tracking-id-text').val(trackId);
+            }
+
+            function hideStatus() {
+                setTimeout(function() {
+                        $('#status').slideUp('slow');
+                    }, 2000);
+            }
+
+            function saveOptions() {
+                var trackId = $('#tracking-id-text').val();
+                console.log(trackId);
+                if (trackId && trackId.length > 0) {
+                    localStorage['trackId'] = trackId;
+                    var successBlock = "<span class='success'>Options Saved</span>";
+                    $('#status').html(successBlock);
+                    $('#status').slideDown('slow', hideStatus());
+                } else {
+                    var errorBlock = "<span class='error'>UHO, something went wrong</span>";
+                    $('#status').html(errorBlock);
+                    $('#status').slideDown('slow', hideStatus());
+                }
+            }
+        </script>
+        <style>
+            body {
+                font-family: 'Lucida Grande', sans-serif;
+                color: hsl(210, 16%, 22%);
+            }
+
+            #content {
+                width: 600px;
+                margin: 0px auto;
+            }
+
+            #status {
+                display: hidden;
+                margin: 20px 0px;
+            }
+
+            #status span {
+                display: block;
+                width: 590px;
+                border-radius: 5px;
+                padding: 8px 5px;
+            }
+
+            .success {
+                border: 1px solid hsl(81,91%,31%);
+                background-color: hsl(81,91%,91%);
+            }
+
+            .error {
+                border: 1px solid hsl(0,64%,50%);
+                background-color: hsl(0,64%,90%);
+            }
+
+            header {
+                font-size: 75%;
+                border-bottom: 1px solid #EEEEEE;
+                margin-bottom: 20px;
+            }
+
+            #options {
+                font-size: 75%;
+            }
+
+            input[type="text"] {
+                border: 1px solid hsl(0, 0%, 75%);
+                border-radius: 2px;
+                box-sizing: border-box;
+                font: inherit;
+                height: 2em;
+                margin: 0;
+                padding: 3px;
+            }
+
+            button {
+                margin-top: 14px;
+                background-color: silver;
+                height: 2em;
+                min-width: 8em;
+                -webkit-appearance: none;
+                -webkit-user-select: none;
+                background-image: -webkit-linear-gradient(
+                    hsl(0, 0%, 93%), 
+                    hsl(0, 0%, 93%) 38%, 
+                    hsl(0, 0%, 87%));
+                border-radius: 2px;
+                border: 1px solid hsla(0, 0%, 0%, 0.25);
+                box-shadow: 0 1px 0 hsla(0, 0%, 0%, 0.08), inset 0 1px 2px hsla(0, 100%, 100%, 0.75);
+                color: hsl(0, 0%, 27%);
+                font: inherit;
+                text-shadow: 0 1px 0 hsl(0, 0%, 94%);
+
+            }
+
+            button:active {
+                  background-image: -webkit-linear-gradient(#e7e7e7, #e7e7e7 38%, #d7d7d7);
+                  box-shadow: none;
+                  text-shadow: none;
+              }
+        </style>
+    </head>
+    <body onload="restoreOptions()">
+    <div id="content">
+        <header>
+            <h1>Options for Amazon Affiliate Link Generator</h1>
+        </header>
+        <div id="status">
+        </div>
+        <div id="options">
+            <label for="tracking-id-text">Your tracking id:</label>
+            <input id="tracking-id-text" type="text" placeholder="homer-12" />
+            <br/>
+            <button onClick="saveOptions()">Save</button>
+        </div>
+    </div>
+
+    </body>
+</html>
