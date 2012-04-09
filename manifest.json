@@ -15,12 +15,19 @@
     "default_icon": "images/icon_19.png",
     "default_popup": "popup.html"
   },
-  "content_scripts": [
-  {
-    "matches": ["http://*.amazon.com/*"],
+  "content_scripts": [{
+    "matches": ["http://*.amazon.com/*",
+                "http://*.amazon.de/*", /* TODO */
+                "http://*.amazon.it/*",
+                "http://*.amazon.co.uk/*",
+                "http://*.amazon.fr/*",
+                "http://*.amazon.co.jp/*",
+                "http://*.amazon.ca/*",
+                "http://*.amazon.cn/*",
+                "http://*.amazon.es/*"],
+
     "css": [],
     "js": ["cs.js"]
-  }
-  ],
+  }],
   "options_page": "options.html"
 }

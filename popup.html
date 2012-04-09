@@ -23,17 +23,19 @@
         <input type="text" id="txt" />
     </body>
     <script src="jq.min.js"></script>
+    <script src="jquery.url.js"></script>
     <script>
-        function buildLink(item) {
-            return 'http://www.amazon.com/dp/' + item + '/?tag=' 
-                + localStorage['trackId'];
-        }
-
         window.onload = function() {
             var item = chrome.extension.getBackgroundPage().selectedItem;
             if (item) {
-                var link = buildLink(item);
-                $('#txt').val(link);
+                chrome.tabs.getSelected(null, function(tab) {
+                    var tablink = tab.url,
+                        host = $.url(tablink).attr('host'),
+                        link = 'http://' + host + '/dp/' + item + '/?tag='
+                                + localStorage['trackId'];
+                    console.log(link);
+                    $('#txt').val(link);
+                });
             }
         }
     </script>
