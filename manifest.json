@@ -17,7 +17,7 @@
   },
   "content_scripts": [{
     "matches": ["http://*.amazon.com/*",
-                "http://*.amazon.de/*", /* TODO */
+                "http://*.amazon.de/*",
                 "http://*.amazon.it/*",
                 "http://*.amazon.co.uk/*",
                 "http://*.amazon.fr/*",
