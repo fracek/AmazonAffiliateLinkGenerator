@@ -1,6 +1,6 @@
 {
   "name": "Amazon Affiliate Link Generator",
-  "version": "0.1",
+  "version": "0.5",
   "description": "Generate an Amazon affiliate link with one click",
   "background_page": "bg.html",
   "icons": {
