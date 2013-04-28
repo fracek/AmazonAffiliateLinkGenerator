@@ -3,7 +3,7 @@
         <title>Popup</title>
         <style>
             body {
-                width: 300px;
+                width: 400px;
             }
 
             label {
@@ -14,7 +14,7 @@
 
             input[type='text'] {
                 display: inline-block;
-                width: 200px;
+                width: 300px;
             }
         </style>
     </head>
@@ -24,19 +24,5 @@
     </body>
     <script src="jq.min.js"></script>
     <script src="jquery.url.js"></script>
-    <script>
-        window.onload = function() {
-            var item = chrome.extension.getBackgroundPage().selectedItem;
-            if (item) {
-                chrome.tabs.getSelected(null, function(tab) {
-                    var tablink = tab.url,
-                        host = $.url(tablink).attr('host'),
-                        link = 'http://' + host + '/dp/' + item + '/?tag='
-                                + localStorage['trackId'];
-                    console.log(link);
-                    $('#txt').val(link);
-                });
-            }
-        }
-    </script>
+    <script src="popup.js"></script>
 </html>
