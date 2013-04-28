@@ -2,35 +2,7 @@
     <head>
         <title>Options for Amazon Affiliate Link Generator</title>
         <script src="jq.min.js"></script>
-        <script type="text/javascript">
-            function restoreOptions() {
-                var trackId = localStorage['trackId'];
-                if (!trackId)
-                    return;
-                $('#tracking-id-text').val(trackId);
-            }
-
-            function hideStatus() {
-                setTimeout(function() {
-                        $('#status').slideUp('slow');
-                    }, 2000);
-            }
-
-            function saveOptions() {
-                var trackId = $('#tracking-id-text').val();
-                console.log(trackId);
-                if (trackId && trackId.length > 0) {
-                    localStorage['trackId'] = trackId;
-                    var successBlock = "<span class='success'>Options Saved</span>";
-                    $('#status').html(successBlock);
-                    $('#status').slideDown('slow', hideStatus());
-                } else {
-                    var errorBlock = "<span class='error'>UHO, something went wrong</span>";
-                    $('#status').html(errorBlock);
-                    $('#status').slideDown('slow', hideStatus());
-                }
-            }
-        </script>
+        <script src="options.js"></script>
         <style>
             body {
                 font-family: 'Lucida Grande', sans-serif;
@@ -111,7 +83,7 @@
               }
         </style>
     </head>
-    <body onload="restoreOptions()">
+    <body>
     <div id="content">
         <header>
             <h1>Options for Amazon Affiliate Link Generator</h1>
@@ -122,7 +94,7 @@
             <label for="tracking-id-text">Your tracking id:</label>
             <input id="tracking-id-text" type="text" placeholder="homer-12" />
             <br/>
-            <button onClick="saveOptions()">Save</button>
+            <button id="saveButton">Save</button>
         </div>
     </div>
 
