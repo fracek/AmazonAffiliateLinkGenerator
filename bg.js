@@ -4,7 +4,7 @@ var selectedItem = null;
 var selectedId = null;
 
 function updateItem(tabId) {
-    chrome.tabs.sendRequest(tabId, {}, function(item) {
+    chrome.tabs.sendMessage(tabId, {}, function(item) {
         items[tabId] = item;
         if (!item) {
           chrome.pageAction.hide(tabId);

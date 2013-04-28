@@ -1,5 +1,5 @@
 if (window == top) {
-  chrome.extension.onRequest.addListener(function(req, sender, senderResponse) {
+  chrome.extension.onMessage.addListener(function(req, sender, senderResponse) {
     senderResponse(findItemID());
   });
 }

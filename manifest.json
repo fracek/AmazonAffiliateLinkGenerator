@@ -5,7 +5,7 @@
   "description": "Generate an Amazon affiliate link with one click",
   "background": {
     "scripts": ["jq.min.js","bg.js"],
-    "persistent": false
+    "persistent": true
   },
   "icons": {
     "16": "images/icon_16.png",
