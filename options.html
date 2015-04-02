@@ -6,56 +6,48 @@
         <style>
             body {
                 font-family: 'Lucida Grande', sans-serif;
+                font-size: 16px;
                 color: hsl(210, 16%, 22%);
             }
-
             #content {
                 width: 600px;
                 margin: 0px auto;
             }
-
             #status {
                 display: hidden;
                 margin: 20px 0px;
             }
-
             #status span {
                 display: block;
                 width: 590px;
                 border-radius: 5px;
                 padding: 8px 5px;
             }
-
             .success {
                 border: 1px solid hsl(81,91%,31%);
                 background-color: hsl(81,91%,91%);
             }
-
             .error {
                 border: 1px solid hsl(0,64%,50%);
                 background-color: hsl(0,64%,90%);
             }
-
             header {
                 font-size: 75%;
                 border-bottom: 1px solid #EEEEEE;
                 margin-bottom: 20px;
             }
-
             #options {
                 font-size: 75%;
             }
-
             input[type="text"] {
-                border: 1px solid hsl(0, 0%, 75%);
                 border-radius: 2px;
+                border: 1px solid hsl(0, 0%, 75%);
                 box-sizing: border-box;
                 font: inherit;
-                height: 2em;
-                margin: 0;
-                padding: 3px;
+                margin: 10px 0;
+                padding: 6px;
+                width: 300px;
             }
-
             button {
                 margin-top: 14px;
                 background-color: silver;
@@ -75,11 +67,17 @@
                 text-shadow: 0 1px 0 hsl(0, 0%, 94%);
 
             }
-
             button:active {
                   background-image: -webkit-linear-gradient(#e7e7e7, #e7e7e7 38%, #d7d7d7);
                   box-shadow: none;
                   text-shadow: none;
+              }
+              label {
+                width: 120px;
+                display: inline-block;
+              }
+              #bitly-options {
+                display: none;
               }
         </style>
     </head>
@@ -88,12 +86,22 @@
         <header>
             <h1>Options for Amazon Affiliate Link Generator</h1>
         </header>
-        <div id="status">
-        </div>
+        <div id="status"></div>
         <div id="options">
-            <label for="tracking-id-text">Your tracking id:</label>
-            <input id="tracking-id-text" type="text" placeholder="homer-12" />
-            <br/>
+            <div>
+                <label for="tracking-id-text">Your tracking id:</label>
+                <input id="tracking-id-text" type="text" placeholder="homer-12">
+            </div>
+            <div>
+                <label for="shorten-url">Shorten Link?
+                    <input type="checkbox" id="shorten-url" value="1">
+                </label>
+            </div>
+            <div id="bitly-options">
+                <label for="bitly-api-key">Your tracking id:</label>
+                <input id="bitly-api-key" type="text" placeholder="jag4xlcllzjriyq...">
+            </div>
+
             <button id="saveButton">Save</button>
         </div>
     </div>
