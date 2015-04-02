@@ -5,7 +5,7 @@ if (window == top) {
 }
 
 function findItemID() {
-  if (window.location.host === 'www.amazon.de') {
+  if (window.location.host === 'www.amazon.com') {
     var itemId = document.getElementsByName('ASIN.0')[0].value;
     console.log(itemId);
     return itemId;
